@@ -212,6 +212,14 @@ h1, h2, h3 { font-family: "Permanent Marker", cursive; font-weight: 400; line-he
 .cta h2 em { font-style: normal; color: var(--blue); }
 .cta .lead-note { margin-bottom: 22px; }
 
+/* ---------------- Signoff (phrase de fin aléatoire) ---------------- */
+.signoff {
+  font-family: "Caveat", cursive; font-size: clamp(1.8rem, 5vw, 3rem);
+  text-align: center; margin: 50px auto 10px; max-width: 26ch;
+  transform: rotate(-1.5deg); line-height: 1.1;
+}
+.signoff #signoff-end { white-space: nowrap; }
+
 /* ---------------- Footer ---------------- */
 footer {
   border-top: 3px solid var(--ink); margin-top: 30px; padding: 22px 0 80px;
