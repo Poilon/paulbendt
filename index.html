@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PAUL BENDT — photo engagée · dessin · films</title>
+  <meta name="description" content="Paul Bendt — photographe engagé, dessins à l'encre bleue, courts-métrages. Retrouve-moi sur Instagram, VSCO et YouTube." />
+  <link rel="icon" href="assets/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Patrick+Hand&family=Permanent+Marker&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+
+  <!-- filtre "tremblé" pour les traits dessinés à la main -->
+  <svg class="defs" aria-hidden="true">
+    <filter id="rough">
+      <feTurbulence type="fractalNoise" baseFrequency="0.013 0.016" numOctaves="2" result="n" />
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="6" />
+    </filter>
+  </svg>
+
+  <!-- NAV -->
+  <header class="nav">
+    <a class="brand" href="#top">
+      <img src="assets/logo.png" alt="Mascotte Paul Bendt" />
+      <b>Paul Bendt<i>.</i></b>
+    </a>
+    <nav class="nav-links">
+      <a href="#moi">Moi</a>
+      <a href="#liens">Où me trouver</a>
+      <a class="ext" href="https://www.instagram.com/plbndt/" target="_blank" rel="noopener">Insta ↗</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <img class="mascot" src="assets/logo.png" alt="" />
+
+      <!-- petite étoile dessinée -->
+      <svg class="spark" style="left:2%;top:6px" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 2 L24 16 L38 20 L24 24 L20 38 L16 24 L2 20 L16 16 Z" fill="none" stroke="#0a5bff" stroke-width="2.5" stroke-linejoin="round"/></svg>
+
+      <p class="kicker">// salut, c'est moi —</p>
+      <h1>PAUL<br /><span class="l2">BENDT</span></h1>
+      <p class="lead">photographe engagé,<br />dessins à l'encre, petits films.</p>
+      <p class="bio">
+        Pseudo assumé — pour que les fachos me retrouvent pas. <b>Penseur quasi communiste</b>,
+        photographe pour @partipris.media, et je bricole des courts-métrages écolos &amp; absurdes.
+      </p>
+      <div class="btn-row" style="margin-top:26px">
+        <a class="btn primary" href="#liens">Où me trouver ↓</a>
+        <a class="btn" href="mailto:paulbendt9@gmail.com">M'écrire</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- RUBAN -->
+  <div class="ribbon">
+    <div class="track">
+      <span>PHOTO ENGAGÉE <i>✦</i></span><span>DESSIN À L'ENCRE <i>✦</i></span><span>COURTS-MÉTRAGES <i>✦</i></span><span>TOUT MONTRER <i>✦</i></span>
+      <span>PHOTO ENGAGÉE <i>✦</i></span><span>DESSIN À L'ENCRE <i>✦</i></span><span>COURTS-MÉTRAGES <i>✦</i></span><span>TOUT MONTRER <i>✦</i></span>
+    </div>
+  </div>
+
+  <!-- CE QUE JE FAIS -->
+  <section class="section" id="moi">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="kicker">ce que je fais</p>
+        <h2><span class="squig">Le bazar</span></h2>
+        <p class="lead-note">trois trucs, le même fil rouge : la colère et la fête dans le même cadre.</p>
+      </div>
+      <div class="cards">
+        <div class="card frame reveal">
+          <span class="tag">la photo</span>
+          <h3>Photo engagée</h3>
+          <p>Manifs, rue, carnaval de la résistance. Je documente ce qui gronde et ce qui danse.</p>
+        </div>
+        <div class="card frame blue reveal">
+          <span class="tag">le trait</span>
+          <h3>Encre bleue</h3>
+          <p>Doodles, mascottes, lettrages, gribouilles. Garder la bavure, l'erreur, la rature.</p>
+        </div>
+        <div class="card frame reveal">
+          <span class="tag">l'image qui bouge</span>
+          <h3>Petits films</h3>
+          <p>TERRE TERRE, FOULE EN COLÈRE. Écolo, absurde, chaotique — faits avec les moyens du bord.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIENS -->
+  <section class="section" id="liens">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="kicker">tout le reste est là-bas →</p>
+        <h2><span class="squig">Où me trouver</span></h2>
+        <p class="lead-note">le portfolio complet vit sur mes pages. Clique, c'est par ici :</p>
+      </div>
+
+      <div class="cards">
+        <a class="card fill frame reveal" href="https://www.instagram.com/plbndt/" target="_blank" rel="noopener">
+          <span class="tag">le quotidien</span>
+          <h3>Instagram ↗</h3>
+          <p>@plbndt — photos, dessins, annonces, le bordel du jour.</p>
+        </a>
+        <a class="card frame blue reveal" href="https://vsco.co/plbndt/gallery" target="_blank" rel="noopener">
+          <span class="tag">les photos</span>
+          <h3>VSCO ↗</h3>
+          <p>vsco.co/plbndt — la galerie photo, brute et entière.</p>
+        </a>
+        <a class="card frame reveal" href="https://www.youtube.com/@PaulBendt" target="_blank" rel="noopener">
+          <span class="tag">les films</span>
+          <h3>YouTube ↗</h3>
+          <p>@PaulBendt — les courts-métrages et les vidéos.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="cta">
+    <div class="wrap reveal">
+      <p class="kicker">tu montes un projet ? un film ?</p>
+      <h2>On se <em>parle ?</em></h2>
+      <p class="lead-note">cherche souvent du monde de bonne volonté pour les tournages.</p>
+      <div class="btn-row">
+        <a class="btn primary" href="mailto:paulbendt9@gmail.com">paulbendt9@gmail.com</a>
+        <a class="btn" href="https://www.instagram.com/plbndt/" target="_blank" rel="noopener">@plbndt ↗</a>
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <footer class="wrap">
+    <span>© <span data-year>2026</span> Paul Bendt — gardé brut, fait main.</span>
+    <span>pseudo // anonyme // engagé</span>
+  </footer>
+
+  <!-- tampon "Approved this site" dans le coin (ton écriture) -->
+  <img class="stamp" src="assets/stamp.png" alt="Paul Bendt approved this site" />
+
+  <script src="assets/script.js"></script>
+</body>
+</html>

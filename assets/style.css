@@ -1,0 +1,235 @@
+/* =======================================================================
+   PAUL BENDT — carnet / fanzine fait main.
+   Papier crème · encre bleue #0069FF · noir · tout est tremblé, dessiné.
+   ======================================================================= */
+
+:root {
+  --paper: #f4ecd8;        /* papier crème */
+  --paper-2: #efe6cf;
+  --ink: #15120c;          /* noir chaud, encre */
+  --blue: #0a5bff;         /* le bleu du stylo */
+  --blue-deep: #0036c4;
+  --red: #e0392b;          /* petit accent tampon */
+  --maxw: 1120px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: "Patrick Hand", "Comic Sans MS", cursive;
+  font-size: 19px;
+  line-height: 1.45;
+  overflow-x: hidden;
+  position: relative;
+  /* grain papier + grille de carnet très discrète */
+  background-image:
+    radial-gradient(rgba(10,91,255,.05) 1px, transparent 1px),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)' opacity='0.25'/%3E%3C/svg%3E");
+  background-size: 22px 22px, 200px 200px;
+}
+
+::selection { background: var(--blue); color: var(--paper); }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 22px; }
+.defs { position: absolute; width: 0; height: 0; }
+
+/* ---------------- Polices / titres ---------------- */
+.marker { font-family: "Permanent Marker", cursive; font-weight: 400; }
+.hand { font-family: "Caveat", cursive; }
+.ink-blue { color: var(--blue); }
+
+h1, h2, h3 { font-family: "Permanent Marker", cursive; font-weight: 400; line-height: .96; }
+
+.kicker {
+  font-family: "Caveat", cursive; font-size: 1.5rem; color: var(--blue);
+  transform: rotate(-2deg); display: inline-block;
+}
+
+/* trait dessiné sous un mot */
+.squig {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='14'%3E%3Cpath d='M2 8 Q 20 2 38 8 T 74 8 T 110 8' fill='none' stroke='%230a5bff' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: repeat-x; background-position: 0 100%; background-size: 110px 12px;
+  padding-bottom: 12px;
+}
+
+/* ---------------- Bord dessiné à la main ---------------- */
+/* le filtre #rough (défini en SVG dans chaque page) fait trembler les traits */
+.frame { position: relative; }
+.frame::before {
+  content: ""; position: absolute; inset: -6px;
+  border: 2.5px solid var(--ink); border-radius: 14px 10px 16px 8px;
+  filter: url(#rough); pointer-events: none;
+}
+.frame.blue::before { border-color: var(--blue); }
+.frame.dbl::after {
+  content: ""; position: absolute; inset: -2px;
+  border: 1.5px solid var(--ink); border-radius: 10px 14px 8px 16px;
+  filter: url(#rough); pointer-events: none; opacity: .5;
+}
+
+/* ---------------- Tampon dans le coin ---------------- */
+.stamp {
+  position: fixed; right: 18px; bottom: 16px; width: clamp(96px, 12vw, 150px);
+  z-index: 80; transform: rotate(-13deg); opacity: .92;
+  pointer-events: none; mix-blend-mode: multiply;
+  filter: url(#rough);
+}
+
+/* ---------------- Bandeau / nav ---------------- */
+.nav {
+  position: sticky; top: 0; z-index: 90;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 10px 22px; background: var(--paper);
+  border-bottom: 3px solid var(--ink);
+}
+.nav .edge { /* trait tremblé sous la nav */
+  position: absolute; left: 0; right: 0; bottom: -3px; height: 3px;
+}
+.brand { display: flex; align-items: center; gap: 10px; }
+.brand img { width: 46px; height: 46px; object-fit: contain; transform: rotate(-6deg); }
+.brand b { font-family: "Permanent Marker", cursive; font-size: 1.35rem; }
+.brand b i { color: var(--blue); font-style: normal; }
+.nav-links { display: flex; gap: 4px; flex-wrap: wrap; align-items: center; }
+.nav-links a {
+  font-family: "Patrick Hand", cursive; font-size: 1.05rem; padding: 4px 10px;
+  transform: rotate(-1deg); transition: transform .15s, color .15s;
+}
+.nav-links a:nth-child(even) { transform: rotate(1.5deg); }
+.nav-links a:hover { color: var(--blue); transform: rotate(0) scale(1.08); }
+.nav-links a.active { color: var(--blue); }
+.nav-links a.active::after { content: " ✦"; }
+.nav-links a.ext { color: var(--blue); }
+
+/* ---------------- Boutons façon dessin ---------------- */
+.btn {
+  position: relative; display: inline-flex; align-items: center; gap: 8px;
+  font-family: "Permanent Marker", cursive; font-size: 1rem;
+  padding: 12px 22px; color: var(--ink); background: transparent;
+  transform: rotate(-1.2deg); transition: transform .15s, background .15s, color .15s;
+  cursor: pointer;
+}
+.btn::before {
+  content: ""; position: absolute; inset: 0; border: 2.5px solid var(--ink);
+  border-radius: 16px 10px 18px 8px; filter: url(#rough);
+}
+.btn:hover { transform: rotate(0) translateY(-2px); }
+.btn.primary { color: var(--paper); background: var(--blue); }
+.btn.primary::before { border-color: var(--blue-deep); }
+.btn:nth-child(even) { transform: rotate(1deg); }
+.btn-row { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+
+/* petite flèche dessinée */
+.doodle-arrow { width: 70px; transform: rotate(8deg); }
+
+/* ---------------- Hero ---------------- */
+.hero { position: relative; padding: 70px 0 50px; }
+.hero .mascot {
+  position: absolute; right: 0; top: 10px; width: min(40vw, 380px);
+  transform: rotate(6deg); animation: bob 6s ease-in-out infinite;
+}
+@keyframes bob { 0%,100% { transform: rotate(6deg) translateY(0);} 50% { transform: rotate(-3deg) translateY(-16px);} }
+.hero h1 { font-size: clamp(3.6rem, 14vw, 11rem); letter-spacing: -.01em; }
+.hero h1 .l2 { display: inline-block; color: var(--blue); transform: rotate(-2deg); }
+.hero .lead { font-family: "Caveat", cursive; font-size: clamp(1.6rem,3.4vw,2.4rem); max-width: 22ch; margin-top: 10px; line-height: 1.1; }
+.hero .bio { margin-top: 14px; max-width: 44ch; font-size: 1.05rem; }
+.hero .bio b { color: var(--blue); }
+
+/* taches / étoiles dessinées dispersées */
+.spark { position: absolute; width: 38px; opacity: .9; }
+
+/* ---------------- Ruban marquee ---------------- */
+.ribbon {
+  background: var(--blue); color: var(--paper); overflow: hidden;
+  padding: 10px 0; transform: rotate(-1.4deg) scale(1.03);
+  border-top: 3px solid var(--ink); border-bottom: 3px solid var(--ink);
+  margin: 30px 0;
+}
+.ribbon .track { display: flex; width: max-content; animation: scroll 24s linear infinite; }
+.ribbon:hover .track { animation-play-state: paused; }
+.ribbon span { font-family: "Permanent Marker", cursive; font-size: clamp(1.3rem,3.5vw,2rem); margin: 0 18px; white-space: nowrap; }
+.ribbon span i { font-style: normal; opacity: .6; }
+@keyframes scroll { from { transform: translateX(0);} to { transform: translateX(-50%);} }
+
+/* ---------------- Sections ---------------- */
+.section { padding: 56px 0; }
+.section-head { margin-bottom: 30px; }
+.section-head h2 { font-size: clamp(2.6rem, 9vw, 5.5rem); }
+.section-head h2 .glitch-none { color: var(--blue); }
+.lead-note { font-family: "Caveat", cursive; font-size: 1.5rem; max-width: 40ch; margin-top: 8px; }
+
+/* ---------------- Cartes (ce que je fais / films / textes) ---------------- */
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px,1fr)); gap: 34px; }
+.card { position: relative; background: var(--paper-2); padding: 26px 24px; display: block; }
+.card:nth-child(3n) { transform: rotate(-1.4deg); }
+.card:nth-child(3n+1) { transform: rotate(1deg); }
+.card:nth-child(3n+2) { transform: rotate(-.6deg); }
+.card:hover { transform: rotate(0) translateY(-4px); }
+.card { transition: transform .2s; }
+.card .tag {
+  font-family: "Caveat", cursive; font-size: 1.3rem; color: var(--blue);
+  display: inline-block; transform: rotate(-3deg);
+}
+.card h3 { font-size: 1.9rem; margin: 4px 0 8px; }
+.card p { font-size: 1.05rem; }
+.card.fill { background: var(--blue); color: var(--paper); }
+.card.fill .tag { color: var(--paper); }
+
+/* ---------------- Tuiles polaroïd ---------------- */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px,1fr)); gap: 30px; }
+.polaroid {
+  position: relative; background: var(--paper); padding: 12px 12px 0; display: block;
+  box-shadow: 3px 5px 0 rgba(21,18,12,.18);
+}
+.polaroid:nth-child(4n) { transform: rotate(2deg); }
+.polaroid:nth-child(4n+1) { transform: rotate(-2.4deg); }
+.polaroid:nth-child(4n+2) { transform: rotate(1.4deg); }
+.polaroid:nth-child(4n+3) { transform: rotate(-1deg); }
+.polaroid:hover { transform: rotate(0) scale(1.04); z-index: 5; transition: transform .2s; }
+.polaroid .pic {
+  aspect-ratio: 4/5; background: var(--blue); color: var(--paper);
+  display: flex; align-items: center; justify-content: center; text-align: center;
+  font-family: "Permanent Marker", cursive; font-size: 1.5rem; padding: 16px; line-height: 1;
+  overflow: hidden;
+}
+.polaroid .pic.alt { background: var(--paper-2); color: var(--blue); border: 2px solid var(--blue); }
+.polaroid .pic img { width: 100%; height: 100%; object-fit: cover; }
+.polaroid .pic.contain { background: var(--paper); }
+.polaroid .pic.contain img { object-fit: contain; padding: 14px; }
+.polaroid .cap { font-family: "Caveat", cursive; font-size: 1.35rem; text-align: center; padding: 8px 4px 12px; }
+.polaroid .tape {
+  position: absolute; top: -10px; left: 50%; transform: translateX(-50%) rotate(-4deg);
+  width: 80px; height: 24px; background: rgba(10,91,255,.18);
+  border: 1px dashed rgba(10,91,255,.4);
+}
+
+/* ---------------- CTA ---------------- */
+.cta { padding: 60px 0; }
+.cta h2 { font-size: clamp(2.6rem,9vw,5rem); margin-bottom: 8px; }
+.cta h2 em { font-style: normal; color: var(--blue); }
+.cta .lead-note { margin-bottom: 22px; }
+
+/* ---------------- Footer ---------------- */
+footer {
+  border-top: 3px solid var(--ink); margin-top: 30px; padding: 22px 0 80px;
+  display: flex; flex-wrap: wrap; gap: 8px; justify-content: space-between;
+  font-family: "Caveat", cursive; font-size: 1.3rem;
+}
+
+/* ---------------- Reveal ---------------- */
+.reveal { opacity: 0; transform: translateY(22px) rotate(-1deg); transition: opacity .6s ease, transform .6s cubic-bezier(.2,.8,.2,1); }
+.reveal.in { opacity: 1; transform: none; }
+
+@media (max-width: 680px) {
+  .hero .mascot { opacity: .28; right: -8%; width: 64vw; }
+  .brand b { font-size: 1.1rem; }
+  .nav-links a { font-size: .95rem; padding: 3px 7px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; }
+  .reveal { opacity: 1; transform: none; }
+  html { scroll-behavior: auto; }
+}
