@@ -90,7 +90,7 @@ h1, h2, h3 { font-family: "Permanent Marker", cursive; font-weight: 400; line-he
   position: absolute; left: 0; right: 0; bottom: -3px; height: 3px;
 }
 .brand { display: flex; align-items: center; gap: 10px; }
-.brand img { width: 46px; height: 46px; object-fit: contain; transform: rotate(-6deg); }
+.brand img { width: 46px; height: 46px; object-fit: contain; transform: rotate(-6deg) scaleX(-1); }
 .brand b { font-family: "Permanent Marker", cursive; font-size: 1.35rem; }
 .brand b i { color: var(--blue); font-style: normal; }
 .nav-links { display: flex; gap: 4px; flex-wrap: wrap; align-items: center; }
