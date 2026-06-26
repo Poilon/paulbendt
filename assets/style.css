@@ -74,10 +74,13 @@ h1, h2, h3 { font-family: "Permanent Marker", cursive; font-weight: 400; line-he
 /* ---------------- Tampon dans le coin ---------------- */
 .stamp {
   position: fixed; right: 18px; bottom: 16px; width: clamp(96px, 12vw, 150px);
-  z-index: 80; transform: rotate(-13deg); opacity: .92;
-  pointer-events: none; mix-blend-mode: multiply;
-  filter: url(#rough);
+  z-index: 80; transform: rotate(-13deg); cursor: pointer; display: block;
 }
+.stamp img {
+  width: 100%; opacity: .92; mix-blend-mode: multiply;
+  filter: url(#rough); transition: transform .2s, opacity .2s;
+}
+.stamp:hover img { transform: scale(1.07) rotate(3deg); opacity: 1; }
 
 /* ---------------- Bandeau / nav ---------------- */
 .nav {
